@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
     public Text scoreText;
     private int score = 0;
+    public bool acceleration = false;
+    public bool thief = false;
+    private float _speedMultiplier = 2f;
 
 
     private void Awake()
@@ -39,9 +42,53 @@ public class PlayerMovement : MonoBehaviour
     {
         _input_horiz = Input.GetAxis("Horizontal");
         _input_verti = Input.GetAxis("Vertical");
+
+        if (acceleration)
+        {
+            StartCoroutine(accelerationPlayer());
+            acceleration = false;
+        }
+
+        if (thief)
+        {
+            StartCoroutine(thiefPower());
+            thief = false;
+        }
     }
 
-    private void FixedUpdate()
+    private IEnumerator accelerationPlayer()
+    {
+        this.set_speed(this.get_speed() * _speedMultiplier);
+        this.set_smoothing(this.get_speed() * 0.01f);
+        yield return new WaitForSeconds(1.5f);
+
+
+
+        this.set_speed(this.get_speed() / _speedMultiplier);
+        this.set_smoothing(this.get_speed() * 0.01f);
+
+
+
+    }
+
+    private IEnumerator thiefPower()
+    {
+       
+        Collider2D playerCollider = GetComponent<Collider2D>();
+        playerCollider.isTrigger = true;
+        
+        yield return new WaitForSeconds(15);
+        playerCollider.isTrigger = false;
+     
+
+        yield return new WaitForSeconds(5);
+        if (!playerCollider.IsTouching((GameObject.FindWithTag("Map").GetComponent<PolygonCollider2D>())))
+        {
+            this.transform.position = new Vector3((float)0.98, (float)-2.28, 0);
+        }
+    }
+
+private void FixedUpdate()
     {
         MovePlayer(_input_horiz * _speed * Time.deltaTime, _input_verti * _speed * Time.deltaTime);
        
@@ -102,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("LeDrapeau"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
             score = score + 1;
             scoreText.text = score.ToString();
 

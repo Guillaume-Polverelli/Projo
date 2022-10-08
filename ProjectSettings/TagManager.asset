@@ -7,6 +7,7 @@ TagManager:
   - Drapeau
   - Power
   - Map
+  - LeDrapeau
   layers:
   - Default
   - TransparentFX
