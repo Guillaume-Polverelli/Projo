@@ -147,7 +147,12 @@ private void FixedUpdate()
 
             }
         }
-        if (collision.gameObject.CompareTag("LeDrapeau"))
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("LeDrapeau"))
         {
             collision.gameObject.SetActive(false);
             score = score + 1;
@@ -156,7 +161,6 @@ private void FixedUpdate()
 
         }
     }
-
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
