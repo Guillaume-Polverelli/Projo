@@ -152,6 +152,7 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   acceleration: 0
   thief: 0
+  isSlowed: 0
 --- !u!95 &957233664
 Animator:
   serializedVersion: 4
@@ -162,7 +163,7 @@ Animator:
   m_GameObject: {fileID: 5313508107362581253}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 42b3aa728fbe40545a2f5ea812da96b5, type: 2}
+  m_Controller: {fileID: 9100000, guid: ee4e7962e15ae074eb2c4e7db6376d76, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

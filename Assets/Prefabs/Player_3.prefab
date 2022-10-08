@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7269324918994913275}
   - component: {fileID: -7563709122689962095}
   - component: {fileID: 8430921244192849381}
-  - component: {fileID: 50666367}
+  - component: {fileID: 1524910025719137216}
   m_Layer: 0
   m_Name: Player_3
   m_TagString: Player
@@ -152,7 +152,8 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   acceleration: 0
   thief: 0
---- !u!95 &50666367
+  isSlowed: 0
+--- !u!95 &1524910025719137216
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -162,7 +163,7 @@ Animator:
   m_GameObject: {fileID: 4979238746099349446}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 42b3aa728fbe40545a2f5ea812da96b5, type: 2}
+  m_Controller: {fileID: 9100000, guid: d039f65152fb1204e93acd0d1afa7ce0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 561120043179130636}
   - component: {fileID: 4171352959342478901}
   - component: {fileID: -3394786784643840251}
-  - component: {fileID: 5828050}
   m_Layer: 0
   m_Name: Player_4
   m_TagString: Player
@@ -152,23 +151,4 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   acceleration: 0
   thief: 0
---- !u!95 &5828050
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4989902487410356756}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 42b3aa728fbe40545a2f5ea812da96b5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  isSlowed: 0
