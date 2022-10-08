@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _smoothing = 0.01f * _speed;
+        _smoothing = 0.005f * _speed;
         //_collider = GetComponent<BoxCollider2D>();
     }
     // Start is called before the first frame update
@@ -46,8 +46,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer(float mouvement_horiz, float mouvement_verti)
     {
-        var newVelocity = new Vector2(mouvement_horiz * 10f, mouvement_verti * 10f);
-        _rb.velocity = Vector2.SmoothDamp(_rb.velocity, newVelocity, ref _velocity, _smoothing);
+        if(Mathf.Abs(mouvement_horiz * 10f) > 0.03 && Mathf.Abs(mouvement_verti * 10f) > 0.03)
+        {
+            var newVelocity = new Vector2(mouvement_horiz * 7f, mouvement_verti * 7f);
+            _rb.velocity = Vector2.SmoothDamp(_rb.velocity, newVelocity, ref _velocity, _smoothing);
+        }
+        else
+        {
+            var newVelocity = new Vector2(mouvement_horiz * 10f, mouvement_verti * 10f);
+            _rb.velocity = Vector2.SmoothDamp(_rb.velocity, newVelocity, ref _velocity, _smoothing);
+        }
     }
 
     public float get_speed()
