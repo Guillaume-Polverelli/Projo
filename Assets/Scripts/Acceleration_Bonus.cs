@@ -19,23 +19,26 @@ public class Acceleration_Bonus : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            
             player = collision.gameObject.GetComponent<PlayerMovement>();
-
+            StartCoroutine(Timer(player));
             Destroy(gameObject);
 
             player.set_speed(player.get_speed() * _speedMultiplier);
             player.set_smoothing(player.get_speed() * 0.01f);
-            StartCoroutine(Timer(player));
+            
         }
     }
 
-    private IEnumerator Timer(PlayerMovement _player)
+    private IEnumerator Timer(PlayerMovement _playerMovement)
     {
-        yield return new WaitForSeconds(_delay);
         Debug.Log("yeah");
-        _player.set_speed(player.get_speed() / _speedMultiplier);
-        _player.set_smoothing(player.get_speed() * 0.01f);
         
+
+        _playerMovement.set_speed(player.get_speed() / _speedMultiplier);
+        _playerMovement.set_smoothing(player.get_speed() * 0.01f);
+        yield return new WaitForSeconds(2);
+
     }
 
     // Update is called once per frame

@@ -50,13 +50,6 @@ public class SpawnDrapeau : MonoBehaviour
 	void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-			_listDrapeaux = GameObject.FindGameObjectsWithTag("Drapeau");
-			int index = Random.Range(0, _listDrapeaux.Length);
-			_posdrapeaux = _listDrapeaux[index];
-
-			_drapeau.transform.SetPositionAndRotation(_posdrapeaux.transform.position, Quaternion.identity);
-        }
+        
 	}
 }

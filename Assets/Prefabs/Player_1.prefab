@@ -169,3 +169,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 10
   _player: 1
+  scoreText: {fileID: 0}
