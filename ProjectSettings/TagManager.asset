@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Drapeau
   - Power
+  - Map
   layers:
   - Default
   - TransparentFX

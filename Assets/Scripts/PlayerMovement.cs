@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _velocity;
     private bool test_collision = false;
     private Animator _animator;
+    public Text scoreText;
+    private int score = 0;
 
 
     private void Awake()
@@ -22,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _smoothing = 0.005f * _speed;
+        
         //_collider = GetComponent<BoxCollider2D>();
     }
     // Start is called before the first frame update
@@ -93,7 +97,16 @@ public class PlayerMovement : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerMovement>().set_speed(tmp);
                 collision.gameObject.GetComponent<PlayerMovement>().set_smoothing(tmp_s);
 
+
             }
+        }
+        if (collision.gameObject.CompareTag("LeDrapeau"))
+        {
+            Destroy(collision.gameObject);
+            score = score + 1;
+            scoreText.text = score.ToString();
+
+
         }
     }
 
@@ -109,10 +122,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
+
     private void AnimatePlayer()
     {
-        _animator.SetFloat("Speed_Horizontal", _rb.velocity.x);
-        _animator.SetFloat("Speed_Vertical", _rb.velocity.y);
+        _animator.SetFloat("Speed_Horizontal", _input_horiz);
+        _animator.SetFloat("Speed_Vertical", _input_verti);
     }
 
 }

@@ -25,15 +25,16 @@ public class Acceleration_Bonus : MonoBehaviour
 
             player.set_speed(player.get_speed() * _speedMultiplier);
             player.set_smoothing(player.get_speed() * 0.01f);
-            StartCoroutine(Timer());
+            StartCoroutine(Timer(player));
         }
     }
 
-    private IEnumerator Timer()
+    private IEnumerator Timer(PlayerMovement _player)
     {
         yield return new WaitForSeconds(_delay);
-        player.set_speed(player.get_speed() / _speedMultiplier);
-        player.set_smoothing(player.get_speed() * 0.01f);
+        Debug.Log("yeah");
+        _player.set_speed(player.get_speed() / _speedMultiplier);
+        _player.set_smoothing(player.get_speed() * 0.01f);
         
     }
 

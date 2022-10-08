@@ -34,7 +34,7 @@ public class SpawnPower : MonoBehaviour
         power = powers[index];
 
         power = Instantiate(power, _pospower.transform.position, Quaternion.identity, this.transform);
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(15);
         if (power)
         {
             Destroy(power);
