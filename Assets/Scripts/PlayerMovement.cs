@@ -14,11 +14,13 @@ public class PlayerMovement : MonoBehaviour
     private float _input_verti;
     private Vector2 _velocity;
     private bool test_collision = false;
-    
+    private Animator _animator;
+
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         _smoothing = 0.01f * _speed;
         //_collider = GetComponent<BoxCollider2D>();
     }
@@ -38,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer(_input_horiz * _speed * Time.deltaTime, _input_verti * _speed * Time.deltaTime);
+       
+        AnimatePlayer();
     }
 
     private void MovePlayer(float mouvement_horiz, float mouvement_verti)
@@ -95,6 +99,12 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
+    }
+
+    private void AnimatePlayer()
+    {
+        _animator.SetFloat("Speed_Horizontal", _rb.velocity.x);
+        _animator.SetFloat("Speed_Vertical", _rb.velocity.y);
     }
 
 }
