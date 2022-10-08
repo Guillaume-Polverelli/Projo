@@ -14,12 +14,14 @@ public class PlayerMovement : MonoBehaviour
     private float _input_verti;
     private Vector2 _velocity;
     private bool test_collision = false;
-    
+    private Animator _animator;
+
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _smoothing = 0.01f * _speed;
+        _animator = GetComponent<Animator>();
+        _smoothing = 0.005f * _speed;
         //_collider = GetComponent<BoxCollider2D>();
     }
     // Start is called before the first frame update
@@ -38,12 +40,22 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer(_input_horiz * _speed * Time.deltaTime, _input_verti * _speed * Time.deltaTime);
+       
+        AnimatePlayer();
     }
 
     private void MovePlayer(float mouvement_horiz, float mouvement_verti)
     {
-        var newVelocity = new Vector2(mouvement_horiz * 10f, mouvement_verti * 10f);
-        _rb.velocity = Vector2.SmoothDamp(_rb.velocity, newVelocity, ref _velocity, _smoothing);
+        if(Mathf.Abs(mouvement_horiz * 10f) > 0.03 && Mathf.Abs(mouvement_verti * 10f) > 0.03)
+        {
+            var newVelocity = new Vector2(mouvement_horiz * 7f, mouvement_verti * 7f);
+            _rb.velocity = Vector2.SmoothDamp(_rb.velocity, newVelocity, ref _velocity, _smoothing);
+        }
+        else
+        {
+            var newVelocity = new Vector2(mouvement_horiz * 10f, mouvement_verti * 10f);
+            _rb.velocity = Vector2.SmoothDamp(_rb.velocity, newVelocity, ref _velocity, _smoothing);
+        }
     }
 
     public float get_speed()
@@ -95,6 +107,12 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
+    }
+
+    private void AnimatePlayer()
+    {
+        _animator.SetFloat("Speed_Horizontal", _rb.velocity.x);
+        _animator.SetFloat("Speed_Vertical", _rb.velocity.y);
     }
 
 }
