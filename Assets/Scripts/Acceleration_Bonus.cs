@@ -10,12 +10,6 @@ public class Acceleration_Bonus : MonoBehaviour
 
     private PlayerMovement player;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -29,13 +23,5 @@ public class Acceleration_Bonus : MonoBehaviour
 
             
         }
-    }
-
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-      
     }
 }

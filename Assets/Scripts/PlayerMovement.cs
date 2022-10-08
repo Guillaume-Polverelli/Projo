@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public bool acceleration = false;
     public bool thief = false;
     private float _speedMultiplier = 2f;
+    public bool isSlowed = false;
 
 
     private void Awake()
