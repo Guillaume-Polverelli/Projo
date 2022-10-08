@@ -20,8 +20,8 @@ public class Acceleration_Bonus : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             player = collision.gameObject.GetComponent<PlayerMovement>();
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
+            Destroy(gameObject);
 
             player.set_speed(player.get_speed() * _speedMultiplier);
             player.set_smoothing(player.get_speed() * 0.01f);
@@ -34,7 +34,7 @@ public class Acceleration_Bonus : MonoBehaviour
         yield return new WaitForSeconds(_delay);
         player.set_speed(player.get_speed() / _speedMultiplier);
         player.set_smoothing(player.get_speed() * 0.01f);
-        Destroy(gameObject);
+        
     }
 
     // Update is called once per frame
