@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 536946260934977486}
   - component: {fileID: 1559882262848066458}
   - component: {fileID: 6051680078524891601}
+  - component: {fileID: -3729181548002422709}
   m_Layer: 0
   m_Name: Power_Down Variant
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-3729181548002422709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7070568562685242381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3581fb89d9d81fc47a27a243f6d2cefb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delay: 2.5
+  _slowMultiplier: 2
