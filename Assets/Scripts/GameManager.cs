@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public int Score3 { get; private set; }
     public int Score4 { get; private set; }
 
+    [SerializeField] private Image [] _imagePlayer;
+    [SerializeField] private GameObject _introUI;
+
     [SerializeField] private float _timerDuration;
     [SerializeField] private Canvas _ui;
     [SerializeField] private GameObject [] _scoreJoueur1;
@@ -23,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     public bool firstTry = false;
 
+    private bool playing = false;
+    private bool [] _activePlayers = new bool[4];
+    private int nbPlayer = 0;
 
     private float _timer = 0;
 
@@ -36,6 +42,11 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        for (int i = 0; i < _activePlayers.Length; i++)
+        {
+            _activePlayers[i] = false;
+        }
     }
 
     // Start is called before the first frame update
@@ -47,24 +58,52 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        _timer -= Time.deltaTime;
-        _timerTxt.text = ((int)_timer).ToString(); ;
+        if (!playing)   
+        {
+            for(int joystickId = 1; joystickId < 4; joystickId++)
+            {
+                for (int buttonId = 0; buttonId < 4; buttonId++)
+                {
+                    if (Input.GetKeyDown("Joystick" + joystickId + "Button" + buttonId))
+                    {
+                        if(_activePlayers[joystickId - 1] == false)
+                        {
+                            _imagePlayer[joystickId - 1].color = new Color(1f, 1f, 1f, 1f);
+                            _activePlayers[joystickId - 1] = true;
+                            nbPlayer++;
+                        }
+                    }
+                }
+            }
 
-        if (Score1 == 7)
-        {
-            EndGame(1);
+            if (nbPlayer == 4)
+            {
+                _introUI.SetActive(false);
+                playing = true;
+            }
+            
         }
-        else if(Score2 == 7)
+        else
         {
-            EndGame(2);
-        }
-        else if (Score3 == 7)
-        {
-            EndGame(3);
-        }
-        else if (Score4 == 7)
-        {
-            EndGame(4);
+            _timer -= Time.deltaTime;
+            _timerTxt.text = ((int)_timer).ToString(); ;
+
+            if (Score1 == 7)
+            {
+                EndGame(1);
+            }
+            else if (Score2 == 7)
+            {
+                EndGame(2);
+            }
+            else if (Score3 == 7)
+            {
+                EndGame(3);
+            }
+            else if (Score4 == 7)
+            {
+                EndGame(4);
+            }
         }
     }
 
