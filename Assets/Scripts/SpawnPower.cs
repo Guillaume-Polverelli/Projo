@@ -13,9 +13,6 @@ public class SpawnPower : MonoBehaviour
     void Start()
     {
         StartCoroutine(StartPowers());
-        
-
-        
     }
 
     // Update is called once per frame
@@ -31,7 +28,7 @@ public class SpawnPower : MonoBehaviour
         _pospower = _listpospowers[index];
 
         int index2 = Random.Range(0, powers.Length);
-        power = powers[index];
+        power = powers[index2];
 
         power = Instantiate(power, _pospower.transform.position, Quaternion.identity, this.transform);
         yield return new WaitForSeconds(15);

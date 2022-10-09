@@ -950,7 +950,7 @@ PrefabInstance:
       objectReference: {fileID: 1980796385}
     - target: {fileID: 9054895535717202954, guid: dd12fe62b17627843b537a8a93d01b97, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9054895535717202954, guid: dd12fe62b17627843b537a8a93d01b97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -43721,7 +43721,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.11912203, y: 0.7325957, z: 0}
   m_MaxChunkCount: 16
@@ -45578,15 +45578,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powers:
-  - {fileID: 4416050025696564843, guid: 8c96dbc1f1eed460a84823d88a0f2c71, type: 3}
-  - {fileID: 2287063078274199269, guid: 2700bae2fcd754d7a9372e8ff2111c85, type: 3}
-  - {fileID: 8565606118346891734, guid: b41cd4c20769a404ebdc1f7c3fb7af86, type: 3}
-  - {fileID: 4133853556409765569, guid: 279574ada386748d9a7c914157159dfe, type: 3}
-  - {fileID: 5559663222256126659, guid: f2e750d4741f34e20abf2307897195c0, type: 3}
   - {fileID: 7070568562685242381, guid: 44a86cb91f0334060b14b4f080bfe67d, type: 3}
   - {fileID: 5468225332531505744, guid: 0866da71b920c4088a36bc688f11c566, type: 3}
-  - {fileID: 7926952768010293674, guid: c6ac3acd4f2224ef3870887ec1426eae, type: 3}
-  - {fileID: 4677175215269885538, guid: 439211339b0784184bebf13497439797, type: 3}
   - {fileID: 4118264882251993579, guid: d729ba6a85c894ee39969dbbee9540a8, type: 3}
   _listpospowers: []
   _pospower: {fileID: 0}
@@ -48262,7 +48255,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2076695124
 GameObject:

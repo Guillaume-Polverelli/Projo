@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(5);
         if (!playerCollider.IsTouching((GameObject.FindWithTag("Map").GetComponent<PolygonCollider2D>())))
         {
-            this.transform.position = new Vector3((float)0.98, (float)-2.28, 0);
+            this.transform.position = new Vector3((float)0.98, (float)-1.1, 0);
         }
     }
 

@@ -93,6 +93,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void RemoveScore(int num_player)
+    {
+        switch (num_player)
+        {
+            case 1:
+                Score1 -= 1;
+                _scoreJoueur1[Score1].SetActive(false);
+                
+                break;
+            case 2:
+                Score2 -= 1;
+                _scoreJoueur2[Score2].SetActive(false);
+                
+                break;
+            case 3:
+                Score3 -= 1;
+                _scoreJoueur3[Score3].SetActive(false);
+                
+                break;
+            case 4:
+                Score4 -= 1;
+                _scoreJoueur4[Score4].SetActive(false);
+                
+                break;
+        }
+    }
+
     public void EndGame(int player)
     {
         print("Joueur " + player.ToString() + "Win");
