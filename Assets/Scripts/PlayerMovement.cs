@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int _player;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private AudioSource _collision;
+    [SerializeField] private AudioSource _drapeau;
 
 
     private float _smoothing;
@@ -182,6 +183,8 @@ private void FixedUpdate()
         {
             collision.gameObject.SetActive(false);
             gameManager.AddScore(_player);
+
+            _drapeau.PlayOneShot(_drapeau.clip, 1);
 
 
         }
