@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     public bool firstTry = false;
 
-    private bool playing = false;
+    public bool playing = false;
     private bool [] _activePlayers = new bool[4];
     private int nbPlayer = 0;
 
@@ -60,26 +60,48 @@ public class GameManager : MonoBehaviour
     {
         if (!playing)   
         {
-            for(int joystickId = 1; joystickId < 4; joystickId++)
+            if (Input.GetKeyDown(KeyCode.Joystick1Button1))
             {
-                for (int buttonId = 0; buttonId < 4; buttonId++)
+                if (_activePlayers[0] == false)
                 {
-                    if (Input.GetKeyDown("Joystick" + joystickId + "Button" + buttonId))
-                    {
-                        if(_activePlayers[joystickId - 1] == false)
-                        {
-                            _imagePlayer[joystickId - 1].color = new Color(1f, 1f, 1f, 1f);
-                            _activePlayers[joystickId - 1] = true;
-                            nbPlayer++;
-                        }
-                    }
+                    _imagePlayer[0].color = new Color(1f, 1f, 1f, 1f);
+                    _activePlayers[0] = true;
+                    nbPlayer++;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Joystick2Button1))
+            {
+                if (_activePlayers[1] == false)
+                {
+                    _imagePlayer[1].color = new Color(1f, 1f, 1f, 1f);
+                    _activePlayers[1] = true;
+                    nbPlayer++;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Joystick3Button1))
+            {
+                if (_activePlayers[2] == false)
+                {
+                    _imagePlayer[2].color = new Color(1f, 1f, 1f, 1f);
+                    _activePlayers[2] = true;
+                    nbPlayer++;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Joystick4Button1))
+            {
+                if (_activePlayers[3] == false)
+                {
+                    _imagePlayer[3].color = new Color(1f, 1f, 1f, 1f);
+                    _activePlayers[3] = true;
+                    nbPlayer++;
                 }
             }
 
+
             if (nbPlayer == 4)
             {
-                _introUI.SetActive(false);
-                playing = true;
+                StartCoroutine(PlayGame());
+                
             }
             
         }
@@ -105,6 +127,13 @@ public class GameManager : MonoBehaviour
                 EndGame(4);
             }
         }
+    }
+
+    private IEnumerator PlayGame()
+    {
+        yield return new WaitForSeconds(1f);
+        _introUI.SetActive(false);
+        playing = true;
     }
 
     public void AddScore(int num_player)
@@ -133,6 +162,8 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+
+
 
     public bool RemoveScore(int num_player)
     {
