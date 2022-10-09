@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isSlowed = false;
     public bool ralentissement = false;
     public bool Inverse = false;
+    public GameObject winGate;
 
     public string AxisX;
     public string AxisY;

@@ -242,7 +242,7 @@ public class GameManager : MonoBehaviour
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         winCanva.SetActive(true);
         winText.text = "Player " + player.ToString() + " Win";
-        //players[player].winGate.GetComponent<Collider>().isTrigger = true;
+        players[player].GetComponent<PlayerMovement>().winGate.GetComponent<Collider>().isTrigger = true;
     }
 
     public void EndTimer()
