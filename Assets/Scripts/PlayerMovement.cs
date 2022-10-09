@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _velocity;
     private bool test_collision = false;
     private Animator _animator;
-    private int score = 0;
+
     public bool acceleration = false;
     public bool thief = false;
     private float _speedMultiplier = 2f;
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _smoothing = 0.005f * _speed;
-        gameManager = GetComponent<GameManager>();
+       
         //_collider = GetComponent<BoxCollider2D>();
     }
     // Start is called before the first frame update

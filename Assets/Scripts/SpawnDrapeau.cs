@@ -6,7 +6,6 @@ using UnityEngine;
 public class SpawnDrapeau : MonoBehaviour
 {
 	public GameObject _prefabDrapeau;
-	private int _sizemap = 10;
 	public GameObject[] _listDrapeaux;
 	public GameObject _posdrapeaux;
 	public GameObject _drapeau;

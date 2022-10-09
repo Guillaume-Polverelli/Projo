@@ -14,11 +14,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float _timerDuration;
     [SerializeField] private Canvas _ui;
-    [SerializeField] private Text _score1Txt;
-    [SerializeField] private Text _score2Txt;
-    [SerializeField] private Text _score3Txt;
-    [SerializeField] private Text _score4Txt;
+    [SerializeField] private GameObject [] _scoreJoueur1;
+    [SerializeField] private GameObject [] _scoreJoueur2;
+    [SerializeField] private GameObject [] _scoreJoueur3;
+    [SerializeField] private GameObject [] _scoreJoueur4;
     [SerializeField] private Text _timerTxt;
+
+
 
     private float _timer = 0;
 
@@ -46,9 +48,21 @@ public class GameManager : MonoBehaviour
         _timer -= Time.deltaTime;
         _timerTxt.text = ((int)_timer).ToString(); ;
 
-        if (_timer < 0)
+        if (Score1 == 7)
         {
-            EndGame();
+            EndGame(1);
+        }
+        else if(Score2 == 7)
+        {
+            EndGame(2);
+        }
+        else if (Score3 == 7)
+        {
+            EndGame(3);
+        }
+        else if (Score4 == 7)
+        {
+            EndGame(4);
         }
     }
 
@@ -57,26 +71,30 @@ public class GameManager : MonoBehaviour
         switch (num_player)
         {
             case 1:
+                
+                _scoreJoueur1[Score1].SetActive(true);
                 Score1 += 1;
-                _score1Txt.text = Score1.ToString();
                 break;
             case 2:
+                
+                _scoreJoueur2[Score2].SetActive(true);
                 Score2 += 1;
-                _score2Txt.text = Score2.ToString();
                 break;
             case 3:
+                
+                _scoreJoueur3[Score3].SetActive(true);
                 Score3 += 1;
-                _score3Txt.text = Score3.ToString();
                 break;
             case 4:
+                
+                _scoreJoueur4[Score4].SetActive(true);
                 Score4 += 1;
-                _score4Txt.text = Score4.ToString();
                 break;
         }
     }
 
-    public void EndGame()
+    public void EndGame(int player)
     {
-        print("Win");
+        print("Joueur " + player.ToString() + "Win");
     }
 }
