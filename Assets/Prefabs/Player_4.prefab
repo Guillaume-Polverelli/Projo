@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!50 &561120043179130636
 Rigidbody2D:
   serializedVersion: 4
@@ -163,7 +163,7 @@ Animator:
   m_GameObject: {fileID: 4989902487410356756}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d039f65152fb1204e93acd0d1afa7ce0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 569caabaa8735e44d94a397e9922618b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
