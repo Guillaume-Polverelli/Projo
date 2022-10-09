@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -13,11 +14,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float _timerDuration;
     [SerializeField] private Canvas _ui;
-    [SerializeField] private TMP_Text _score1Txt;
-    [SerializeField] private TMP_Text _score2Txt;
-    [SerializeField] private TMP_Text _score3Txt;
-    [SerializeField] private TMP_Text _score4Txt;
-    [SerializeField] private TMP_Text _timerTxt;
+    [SerializeField] private Text _score1Txt;
+    [SerializeField] private Text _score2Txt;
+    [SerializeField] private Text _score3Txt;
+    [SerializeField] private Text _score4Txt;
+    [SerializeField] private Text _timerTxt;
 
     private float _timer = 0;
 

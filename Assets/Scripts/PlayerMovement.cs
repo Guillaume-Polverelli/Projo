@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private int _player;
+    [SerializeField] private GameManager gameManager;
+
 
     private float _smoothing;
     private Rigidbody2D _rb;
@@ -16,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _velocity;
     private bool test_collision = false;
     private Animator _animator;
-    public Text scoreText;
     private int score = 0;
     public bool acceleration = false;
     public bool thief = false;
@@ -24,12 +25,14 @@ public class PlayerMovement : MonoBehaviour
     public bool isSlowed = false;
 
 
+
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _smoothing = 0.005f * _speed;
-        
+        gameManager = GetComponent<GameManager>();
         //_collider = GetComponent<BoxCollider2D>();
     }
     // Start is called before the first frame update
@@ -156,8 +159,7 @@ private void FixedUpdate()
         if(collision.gameObject.CompareTag("LeDrapeau"))
         {
             collision.gameObject.SetActive(false);
-            score = score + 1;
-            scoreText.text = score.ToString();
+            gameManager.AddScore(_player);
 
 
         }

@@ -8,6 +8,8 @@ TagManager:
   - Power
   - Map
   - LeDrapeau
+  - Fire
+  - ThiefZone
   layers:
   - Default
   - TransparentFX
