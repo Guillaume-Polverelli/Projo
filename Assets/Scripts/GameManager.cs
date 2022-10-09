@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text _timerTxt;
 
 
+    public bool firstTry = false;
+
 
     private float _timer = 0;
 
@@ -93,31 +95,67 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RemoveScore(int num_player)
+    public bool RemoveScore(int num_player)
     {
         switch (num_player)
         {
             case 1:
-                Score1 -= 1;
-                _scoreJoueur1[Score1].SetActive(false);
+                if(Score1 > 0)
+                {
+                    Score1 -= 1;
+                    _scoreJoueur1[Score1].SetActive(false);
+                    
+                }
+                else
+                {
+                    return false;
+                }
+             
                 
                 break;
             case 2:
-                Score2 -= 1;
-                _scoreJoueur2[Score2].SetActive(false);
-                
+                if (Score2 > 0)
+                {
+                    Score2 -= 1;
+                    _scoreJoueur2[Score2].SetActive(false);
+                    
+                }
+                else
+                {
+                    return false;
+                }
+
                 break;
             case 3:
-                Score3 -= 1;
-                _scoreJoueur3[Score3].SetActive(false);
-                
+                if (Score2 > 0)
+                {
+                    Score3 -= 1;
+                    _scoreJoueur3[Score3].SetActive(false);
+                    
+                }
+                else
+                {
+                    return false;
+                }
+
                 break;
             case 4:
-                Score4 -= 1;
-                _scoreJoueur4[Score4].SetActive(false);
-                
+                if (Score2 > 0)
+                {
+                    Score4 -= 1;
+                    _scoreJoueur4[Score4].SetActive(false);
+                    
+                }
+                else
+                {
+                    return false;
+                }
+
                 break;
+
+            
         }
+        return true;
     }
 
     public void EndGame(int player)

@@ -22,8 +22,7 @@ public class Ralentissement_Bonus : MonoBehaviour
         {
             _active = true;
             _startTime = Time.fixedTime;
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.SetActive(false);
             // Animation fadeout
 
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");

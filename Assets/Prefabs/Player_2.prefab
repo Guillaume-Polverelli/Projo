@@ -122,18 +122,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01711917, y: -4.0001545}
+  m_Offset: {x: 0.01711917, y: 0.98048496}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.3125, y: 10.625}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 3.625, y: 9.8125}
     newSize: {x: 5.3125, y: 10.625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.3603287, y: 1.0827348}
+  m_Size: {x: 3.3603287, y: 1.0827389}
   m_EdgeRadius: 0
 --- !u!114 &-6937752841894884617
 MonoBehaviour:
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0
   _player: 2
-  scoreText: {fileID: 0}
+  gameManager: {fileID: 0}
   acceleration: 0
   thief: 0
   isSlowed: 0

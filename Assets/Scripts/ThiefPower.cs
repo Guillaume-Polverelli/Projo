@@ -10,14 +10,16 @@ public class ThiefPower : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            GameManager.Instance.firstTry = true;
             player = collision.gameObject.GetComponent<PlayerMovement>();
 
             Destroy(gameObject);

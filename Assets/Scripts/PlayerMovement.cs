@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
    private  void Update()
     {
         _input_horiz = Input.GetAxis("Horizontal");
-        _input_verti = Input.GetAxis("Vertical");
+        _input_verti = - Input.GetAxis("Vertical");
 
         if (acceleration)
         {
