@@ -169,6 +169,7 @@ private void FixedUpdate()
                 collision.gameObject.GetComponent<PlayerMovement>().set_speed(tmp);
                 collision.gameObject.GetComponent<PlayerMovement>().set_smoothing(tmp_s);
 
+                _collision.PlayOneShot(_collision.clip, 1);
 
             }
         }
