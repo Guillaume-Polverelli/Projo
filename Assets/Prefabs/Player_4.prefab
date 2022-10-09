@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 561120043179130636}
   - component: {fileID: 4171352959342478901}
   - component: {fileID: -3394786784643840251}
-  - component: {fileID: 980062694062469667}
+  - component: {fileID: 1184284880}
   m_Layer: 0
   m_Name: Player_4
   m_TagString: Player
@@ -122,7 +122,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01711917, y: -4.0001545}
+  m_Offset: {x: 0.01711917, y: 0.92474365}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -133,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.3603287, y: 1.0827348}
+  m_Size: {x: 3.3603287, y: 0.8571625}
   m_EdgeRadius: 0
 --- !u!114 &-3394786784643840251
 MonoBehaviour:
@@ -153,7 +153,7 @@ MonoBehaviour:
   acceleration: 0
   thief: 0
   isSlowed: 0
---- !u!95 &980062694062469667
+--- !u!95 &1184284880
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ Animator:
   m_GameObject: {fileID: 4989902487410356756}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 569caabaa8735e44d94a397e9922618b, type: 2}
+  m_Controller: {fileID: 9100000, guid: d039f65152fb1204e93acd0d1afa7ce0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
