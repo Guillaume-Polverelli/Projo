@@ -6,6 +6,7 @@ public class ThiefPower : MonoBehaviour
 {
 
     private PlayerMovement player;
+    public AudioSource _collision;
 
 
 
@@ -21,6 +22,8 @@ public class ThiefPower : MonoBehaviour
         {
             GameManager.Instance.firstTry = true;
             player = collision.gameObject.GetComponent<PlayerMovement>();
+
+            _collision.PlayOneShot(_collision.clip, 1);
 
             Destroy(gameObject);
 

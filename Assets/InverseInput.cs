@@ -5,6 +5,8 @@ using UnityEngine;
 public class InverseInput : MonoBehaviour
 {
 
+    [SerializeField] private AudioSource _collision;
+
 
 
     // Start is called before the first frame update
@@ -19,6 +21,8 @@ public class InverseInput : MonoBehaviour
         {
             
             collision.gameObject.GetComponent<PlayerMovement>().Inverse = true;
+
+            _collision.PlayOneShot(_collision.clip, 1);
 
             Destroy(gameObject);
 

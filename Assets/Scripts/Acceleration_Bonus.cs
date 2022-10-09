@@ -7,6 +7,7 @@ public class Acceleration_Bonus : MonoBehaviour
 
     [SerializeField] private float _delay;
     [SerializeField] private float _speedMultiplier;
+    [SerializeField] private AudioSource _collision;
 
     private PlayerMovement player;
 
@@ -16,7 +17,9 @@ public class Acceleration_Bonus : MonoBehaviour
         {
             
             player = collision.gameObject.GetComponent<PlayerMovement>();
-          
+
+            _collision.PlayOneShot(_collision.clip, 1);
+
             Destroy(gameObject);
 
             player.acceleration = true;

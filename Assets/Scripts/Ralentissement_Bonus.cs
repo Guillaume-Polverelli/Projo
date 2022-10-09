@@ -7,6 +7,8 @@ public class Ralentissement_Bonus : MonoBehaviour
 
     private GameObject[] players;
 
+    [SerializeField] private AudioSource _collision;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,8 @@ public class Ralentissement_Bonus : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerMovement>().ralentissement = true;
+
+            _collision.PlayOneShot(_collision.clip, 1);
 
             Destroy(gameObject);
             // Animation fadeout

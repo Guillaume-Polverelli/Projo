@@ -7,7 +7,9 @@ public class ThiefScript : MonoBehaviour
 
     public int numJoueur;
     private PlayerMovement player;
+
     
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,6 +20,8 @@ public class ThiefScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+
+
             player = collision.gameObject.GetComponent<PlayerMovement>();
             if (GameManager.Instance.firstTry)
             {
