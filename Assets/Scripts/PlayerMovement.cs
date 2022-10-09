@@ -50,8 +50,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
    private  void Update()
     {
-        _input_horiz = Input.GetAxis(AxisX);
-        _input_verti = - Input.GetAxis(AxisY);
+        if (GameManager.Instance.playing)
+        {
+            _input_horiz = Input.GetAxis(AxisX);
+            _input_verti = -Input.GetAxis(AxisY);
+        }
+        
 
         if (acceleration)
         {
