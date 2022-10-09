@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private int _player;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private AudioSource _collision;
 
 
     private float _smoothing;
