@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     public bool thief = false;
     private float _speedMultiplier = 2f;
     public bool isSlowed = false;
+    public bool ralentissement = false;
+    public bool Inverse = false;
 
     public string AxisX;
     public string AxisY;
@@ -60,6 +62,17 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(thiefPower());
             thief = false;
+        }
+        if (ralentissement)
+        {
+       
+            StartCoroutine(Ralentissement());
+            ralentissement = false;
+        }
+        if (Inverse)
+        {
+            StartCoroutine(InverseCor());
+            Inverse = false;
         }
     }
 
@@ -167,6 +180,67 @@ private void FixedUpdate()
 
         }
     }
+
+    private IEnumerator Ralentissement()
+    {
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject player in players)
+        {
+            if (get_player() != player.GetComponent<PlayerMovement>().get_player() && !GetComponent<BoxCollider2D>().isTrigger)
+            {
+                player.GetComponent<PlayerMovement>().set_speed(player.GetComponent<PlayerMovement>().get_speed() / 2);
+                isSlowed = true;
+            }
+        }
+
+
+        yield return new WaitForSeconds(2.5f);
+
+        foreach (GameObject player in players)
+        {
+            if (get_player() != player.GetComponent<PlayerMovement>().get_player() && isSlowed == true)
+            {
+                player.GetComponent<PlayerMovement>().set_speed(player.GetComponent<PlayerMovement>().get_speed() * 2);
+                isSlowed = false;
+            }
+        }
+
+        
+    }
+
+    private IEnumerator InverseCor()
+    {
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject player in players)
+        {
+            if (get_player() != player.GetComponent<PlayerMovement>().get_player() && !GetComponent<BoxCollider2D>().isTrigger)
+            {
+                string Axis = player.GetComponent<PlayerMovement>().AxisX;
+                player.GetComponent<PlayerMovement>().AxisX = player.GetComponent<PlayerMovement>().AxisY;
+                player.GetComponent<PlayerMovement>().AxisY = Axis;
+            }
+        }
+
+
+        yield return new WaitForSeconds(3f);
+
+        foreach (GameObject player in players)
+        {
+            if (get_player() != player.GetComponent<PlayerMovement>().get_player())
+            {
+                string Axis = player.GetComponent<PlayerMovement>().AxisX;
+                player.GetComponent<PlayerMovement>().AxisX = player.GetComponent<PlayerMovement>().AxisY;
+                player.GetComponent<PlayerMovement>().AxisY = Axis;
+            }
+        }
+
+
+    }
+
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
