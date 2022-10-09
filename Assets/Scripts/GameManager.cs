@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int Score2 { get; private set; }
     public int Score3 { get; private set; }
     public int Score4 { get; private set; }
+    private int [] _scores = new int[4];
 
     [SerializeField] private Image [] _imagePlayer;
     [SerializeField] private GameObject _introUI;
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject [] _scoreJoueur3;
     [SerializeField] private GameObject [] _scoreJoueur4;
     [SerializeField] private Text _timerTxt;
+    [SerializeField] private GameObject winCanva;
+    [SerializeField] private Text winText;
 
 
     public bool firstTry = false;
@@ -100,15 +103,19 @@ public class GameManager : MonoBehaviour
 
             if (nbPlayer == 4)
             {
-                StartCoroutine(PlayGame());
-                
+                StartCoroutine(PlayGame());   
             }
-            
+
         }
         else
         {
             _timer -= Time.deltaTime;
             _timerTxt.text = ((int)_timer).ToString(); ;
+
+            if (_timer <= 0)
+            {
+                EndTimer();
+            }
 
             if (Score1 == 7)
             {
@@ -230,6 +237,43 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(int player)
     {
+        playing = false;
         print("Joueur " + player.ToString() + "Win");
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        winCanva.SetActive(true);
+        winText.text = "Player " + player.ToString() + " Win";
+        //players[player].winGate.GetComponent<Collider>().isTrigger = true;
+    }
+
+    public void EndTimer()
+    {
+        playing = false;
+
+        _scores[0] = Score1;
+        _scores[1] = Score2;
+        _scores[2] = Score3;
+        _scores[3] = Score4;
+
+        int scoreMax = 0;
+        List<int> winners = new List<int>();
+
+        for (int i = 0; i < _scores.Length; i++)
+        {
+            if (_scores[i] > scoreMax)
+            {
+                scoreMax = _scores[i];
+                winners.Clear();    
+                winners.Add(i+1);
+            }
+            else if (_scores[i] == scoreMax)
+            {
+                winners.Add(i+1);
+            }
+        }
+
+        // random winner
+        int index = Random.Range(0, winners.Count);
+        EndGame(winners[index]);
+
     }
 }
