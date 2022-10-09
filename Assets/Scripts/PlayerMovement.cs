@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     private float _speedMultiplier = 2f;
     public bool isSlowed = false;
 
+    public string AxisX;
+    public string AxisY;
+
 
 
 
@@ -44,8 +47,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
    private  void Update()
     {
-        _input_horiz = Input.GetAxis("Horizontal");
-        _input_verti = - Input.GetAxis("Vertical");
+        _input_horiz = Input.GetAxis(AxisX);
+        _input_verti = - Input.GetAxis(AxisY);
 
         if (acceleration)
         {

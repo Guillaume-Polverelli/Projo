@@ -147,12 +147,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd77192515bb96e429b1fc4c78fa1740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 7
+  _speed: 9
   _player: 2
   gameManager: {fileID: 0}
   acceleration: 0
   thief: 0
   isSlowed: 0
+  AxisX: Joy2X
+  AxisY: Joy2Y
 --- !u!95 &957233664
 Animator:
   serializedVersion: 4

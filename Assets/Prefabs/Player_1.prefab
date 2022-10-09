@@ -167,9 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd77192515bb96e429b1fc4c78fa1740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0
+  _speed: 7
   _player: 1
   gameManager: {fileID: 0}
   acceleration: 0
   thief: 0
   isSlowed: 0
+  AxisX: Joy1X
+  AxisY: Joy1Y

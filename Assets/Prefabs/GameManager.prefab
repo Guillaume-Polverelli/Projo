@@ -44,10 +44,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9ab73a2a0599d4899fdf26d712549a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timerDuration: 0
+  _timerDuration: 150
   _ui: {fileID: 0}
-  _score1Txt: {fileID: 0}
-  _score2Txt: {fileID: 0}
-  _score3Txt: {fileID: 0}
-  _score4Txt: {fileID: 0}
+  _scoreJoueur1:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _scoreJoueur2:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _scoreJoueur3:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _scoreJoueur4:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _timerTxt: {fileID: 0}
+  firstTry: 0
