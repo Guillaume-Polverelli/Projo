@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     {
         if (!playing)   
         {
-            if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+            if (Input.GetKeyDown(KeyCode.Joystick1Button1))
             {
                 if (_activePlayers[0] == false)
                 {
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
                     nbPlayer++;
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Joystick2Button0))
+            if (Input.GetKeyDown(KeyCode.Joystick2Button1))
             {
                 if (_activePlayers[1] == false)
                 {
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
                     nbPlayer++;
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Joystick3Button0))
+            if (Input.GetKeyDown(KeyCode.Joystick3Button1))
             {
                 if (_activePlayers[2] == false)
                 {
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
                     nbPlayer++;
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Joystick4Button0))
+            if (Input.GetKeyDown(KeyCode.Joystick4Button1))
             {
                 if (_activePlayers[3] == false)
                 {
@@ -100,8 +100,8 @@ public class GameManager : MonoBehaviour
 
             if (nbPlayer == 4)
             {
-                _introUI.SetActive(false);
-                playing = true;
+                StartCoroutine(PlayGame());
+                
             }
             
         }
@@ -127,6 +127,13 @@ public class GameManager : MonoBehaviour
                 EndGame(4);
             }
         }
+    }
+
+    private IEnumerator PlayGame()
+    {
+        yield return new WaitForSeconds(1f);
+        _introUI.SetActive(false);
+        playing = true;
     }
 
     public void AddScore(int num_player)
@@ -155,6 +162,8 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+
+
 
     public bool RemoveScore(int num_player)
     {
